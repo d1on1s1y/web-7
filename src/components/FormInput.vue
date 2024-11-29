@@ -29,4 +29,20 @@ export default {
 
 </script>
 
-<style></style>
+<style>
+.input-field {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    background-color: white;
+    color: var(--text-color);
+  }
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+</style>
