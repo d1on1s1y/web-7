@@ -65,14 +65,13 @@ export default {
   },
   data() {
     return {
-      localData: [...this.data], // локальна копія даних
+      localData: [...this.data],
       selectedRows: [],
       selectAll: false
     };
   },
   watch: {
     data(newData) {
-      // Оновлення локальної копії, якщо змінилась prop data
       this.localData = [...newData];
     },
     selectedRows(newSelectedRows) {
@@ -99,16 +98,16 @@ export default {
     },
     duplicateSelectedRows() {
       const duplicatedRows = this.selectedRows.map(index => ({
-        ...this.localData[index] // копіюємо дані рядка
+        ...this.localData[index]
       }));
-      this.localData = [...this.localData, ...duplicatedRows]; // додаємо копії в локальні дані
-      this.$emit('duplicate', this.localData); // передаємо оновлені дані батьківському компоненту
-      this.selectedRows = []; // очищаємо вибір
+      this.localData = [...this.localData, ...duplicatedRows];
+      this.$emit('duplicate', this.localData); 
+      this.selectedRows = []; 
     },
     deleteSelectedRows() {
       this.localData = [...this.localData.filter((_, index) => !this.selectedRows.includes(index))];
-      this.$emit('delete', this.localData); // передаємо оновлений масив даних батьківському компоненту
-      this.selectedRows = []; // очищаємо вибір
+      this.$emit('delete', this.localData); 
+      this.selectedRows = [];
     }
   }
 };
